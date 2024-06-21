@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANCHVI STUDIO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 10px;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .logo-container {
+            /* Placeholder for logo */
+        }
+
+        .nav-icons a {
+            margin-left: 15px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .card {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            width: 80%;
+        }
+
+        .card .carousel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .carousel-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .carousel-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .card-content {
+            flex: 2;
+            padding: 20px;
+        }
+
+        .dress-details h1 {
+            margin-top: 0;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .size-option {
+            border: 1px solid #ccc;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .size-option.selected {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <ul class="nav-links">
+                <li><a href="\home">Home</a></li>
+                <li><a href="\shop">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="#1st-birthdays">1st BIRTHDAYS</a>
+                        <a href="#casuals">CASUALS</a>
+                        <a href="#ethnic">ETHNIC</a>
+                        <a href="#kids-sale">KIDS SALE</a>
+                        <a href="#mom-daughter-duo">MOM-DAUGHTER DUO</a>
+                        <a href="#party-wear">PARTY WEAR</a>
+                        <a href="#accessories">ACCESSORIES</a>
+                    </div>
+                </li>
+                <li><a href="\contact_us">Contact</a></li>
+                <li><a href="\about_us">About Us</a></li>
+                <li><a href="\terms_condition">Terms & Conditions</a></li>
+            </ul>
+        </div>
+        <div class="logo-container">
+            <!-- Placeholder for logo -->
+        </div>
+        <div class="navbar-right">
+            <div class="nav-icons">
+                <a href="#login"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:25px;color:black;"></i></a>
+                <a href="#search"><i class="fa fa-search" aria-hidden="true" style="font-size:25px;color:black;"></i></a>
+                <a href="#cart"><i class="fa fa-shopping-bag" aria-hidden="true" style="font-size:25px;color:black;"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-container" id="cardsContainer"></div>
+
+    <footer>
+        <p>&copy; 2024 SANCHVI STUDIO</p>
+        <p>ADDRESS: 17/1, 3rd Floor, Tulsi Pharma Building, Berlie St, Langford Town, Shanti Nagar, Bengaluru, Karnataka 560025</p>
+        <p>CONTACT NUMBER: 8296250912</p>
+    </footer>
+
+    <script>
+        const cardData = [
+            {
+                title: "JIMMY CHOO HALTER NECK WITH PANTS",
+                prices: {
+                    "1-2y": "Rs. 8,499/-",
+                    "2-3y": "Rs. 8,699/-",
+                    "3-4y": "Rs. 8,899/-",
+                    "4-5y": "Rs. 9,099/-",
+                    "5-6y": "Rs. 9,299/-",
+                    "6-7y": "Rs. 9,499/-",
+                    "7-8y": "Rs. 9,699/-",
+                    "8-9y": "Rs. 9,899/-",
+                    "9-10y": "Rs. 10,099/-"
+                },
+                images: [
+                    "https://sanchvi.com/cdn/shop/files/KS_04_Final-01-Copy_600x.jpg?v=1714738939",
+                    "https://sanchvi.com/cdn/shop/files/KS_04_Final-02-Copy_600x.jpg?v=1714738940",
+                    "https://sanchvi.com/cdn/shop/files/KS_04_Final-03-Copy_600x.jpg?v=1714738941"
+                ],
+                description: `Details - Introducing the "Jimmy Choo Halter Neck with Skirt," a pinnacle of sophistication and adaptability. This ensemble exudes contemporary elegance, with the halter neck blouse showcasing intricate pleated structure that elevates the silhouette with refined charm. Its wired draped design adds an effortless touch of glamour.
+                Accompanying the blouse is a meticulously crafted skirt, offering two distinct looks for versatile styling. The first look features a chic sharara design, blending tradition with modernity, while the second presents a graceful silhouette, exuding whimsical charm.
+                Crafted with precision and attention to detail, this ensemble embodies the timeless allure of Jimmy Choo. Whether worn as a complete set or mixed and matched for personalized flair, it promises to make a statement at any event, from cocktail parties to red carpet affairs.
+                Embrace luxury and sophistication with the "Jimmy Choo Halter Neck with Skirt," a testament to impeccable craftsmanship and contemporary elegance. Flaunt your unique style and command attention with this exquisite ensemble that seamlessly transitions from day to night with unparalleled grace.`,
+                fabric: "Jimmy choo, crepe , net"
+            }
+            // Add more card objects here as needed
+        ];
+
+        function generateCard(card) {
+            return `
+            <div class="card">
+                <div class="carousel">
+                    <div class="carousel-images">
+                        ${card.images.map(imageUrl => `<img src="${imageUrl}" class="carousel-image" alt="">`).join('')}
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="dress-details">
+                        <h1>${card.title}</h1>
+                        <div class="price" id="price-${card.title.replace(/\s+/g, '')}">${card.prices["1-2y"]}</div>
+                        <div class="size-options" id="sizeOptions${card.title.replace(/\s+/g, '')}">
+                            <!-- Size options will be generated here by JavaScript -->
+                        </div>
+                        <div class="size-chart-link" onclick="openSizeChart()">Size Chart</div>
+                        <div class="size-chart-modal" id="sizeChartModal">
+                            <span class="close" onclick="closeSizeChart()">&times;</span>
+                            <img src="https://sanchvi.com/cdn/shop/files/Size_Chart_400x.jpg?v=1709622759" alt="Size Chart">
+                        </div>
+                        <div class="modal-overlay" id="modalOverlay" onclick="closeSizeChart()"></div>
+                            </div>
+                        </div>
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity()">-</button>
+                            <span id="quantity">1</span>
+                            <button onclick="increaseQuantity()">+</button>
+                        </div>
+                        <button class="button add-to-cart" onclick="orderWhatsApp()">Order by WhatsApp</button>
+                        <button class="button buy-now" onclick="addToCart()">Add to Cart</button>
+                        <div class="description">
+                            <p>${card.description}</p>
+                            <p>Fabric - ${card.fabric}</p>
+                            <p>Note: Please read the terms and conditions for shipping before placing an order.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+
+        // Function to generate size options dynamically
+        function generateSizeOptions(card) {
+            const sizes = Object.keys(card.prices);
+            const sizeOptionsHtml = sizes.map(size => `
+                <div class="size-option" onclick="updatePrice('${size}', '${card.title.replace(/\s+/g, '')}')">${size}</div>
+            `).join('');
+
+            document.getElementById(`sizeOptions${card.title.replace(/\s+/g, '')}`).innerHTML = sizeOptionsHtml;
+        }
+
+        // Function to update price based on selected size
+        function updatePrice(size, cardTitleId) {
+            const priceElement = document.getElementById(`price-${cardTitleId}`);
+            priceElement.textContent = cardData.find(card => card.title.replace(/\s+/g, '') === cardTitleId).prices[size];
+        }
+
+        // Function to handle quantity decrease
+        function decreaseQuantity() {
+            const quantityElement = document.getElementById('quantity');
+            let quantity = parseInt(quantityElement.innerText);
+            if (quantity > 1) {
+                quantityElement.innerText = --quantity;
+            }
+        }
+
+        // Function to handle quantity increase
+        function increaseQuantity() {
+            const quantityElement = document.getElementById('quantity');
+            let quantity = parseInt(quantityElement.innerText);
+            quantityElement.innerText = ++quantity;
+        }
+
+        // Function to open size chart modal
+        function openSizeChart() {
+            document.getElementById('sizeChartModal').style.display = 'block';
+            document.getElementById('modalOverlay').style.display = 'block';
+        }
+
+        // Function to close size chart modal
+        function closeSizeChart() {
+            document.getElementById('sizeChartModal').style.display = 'none';
+            document.getElementById('modalOverlay').style.display = 'none';
+        }
+
+        // Function to handle order by WhatsApp
+        function orderWhatsApp() {
+            // Implement WhatsApp order functionality here, e.g., redirect to WhatsApp chat
+            window.location.href = 'https://api.whatsapp.com/send?phone=918296250912';
+        }
+
+        // Function to handle add to cart
+        function addToCart() {
+            // Implement add to cart functionality here
+            alert('Item added to cart!');
+        }
+
+        // Initialize the page with cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cardsContainer = document.getElementById('cardsContainer');
+            cardData.forEach(card => {
+                const cardHtml = generateCard(card);
+                cardsContainer.innerHTML += cardHtml;
+                generateSizeOptions(card);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <!-- Add your CSS links here if needed -->
+</head>
+
+<body>
+    <h1>Search Results</h1>
+    <div class="search-results">
+        <!-- Display search results here -->
+        <h1>welcome to search results</h1>
+        {% for product in products %}
+        <li>
+            {{product.name}}
+        </li>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

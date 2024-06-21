@@ -1,0 +1,45 @@
+from django.contrib import admin
+from django.urls import path
+from .views import submit_form # type ignor
+from . import views
+
+urlpatterns = [
+    path('',views.home,name='main'),
+    path('contact_us',views.contact_us,name='contact'),
+    path('about_us',views.about_us,name='about'),
+    path('terms_condition',views.terms_condition,name='terms_condition'),
+    path('shop_now1',views.shop_now1,name='shop_now1'),
+    path('shop_now2',views.shop_now2,name='shop_now2'),
+    path('shop_now3',views.shop_now3,name='shop_now3'),
+    path('shop_now4',views.shop_now4,name='shop_now4'),
+    path('shop_now5',views.shop_now5,name='shop_now5'),
+    path('product1',views.product1,name='product1'),
+    path('product2',views.product2,name='product2'),
+    path('product3',views.product3,name='product3'),
+    path('product4',views.product4,name='product4'),
+    path('product5',views.product5,name='product5'),
+    # path('ethnic',views.ethnic,name='ethnic'),
+    path('women_attire',views.women_attire,name='women_attire'),
+    path('details1',views.details1,name='details1'),
+    path('details2',views.details2,name='details2'),
+    path('details3',views.details3,name='details3'),
+    path('details4',views.details4,name='details4'),
+    path('details5',views.details5,name='details5'),
+    path('details6',views.details6,name='details6'),
+    path('birthday_list/',views.birth_day,name='birthday_list'),
+    path('casual',views.casual_list,name='casual'),
+    path('ethnic',views.ethnic_list,name='ethnic'),
+ path('mom_daughter/', views.mom_daughter, name='mom_daughter'),   path('party',views.party_view,name='party'),
+    path('accessories',views.accessories,name='accessories'),
+    path('/submit-form', views.submit_form, name='submit_form'),
+    path('login_view', views.login_view, name='login'),
+    path('product_list', views.product_list, name='product_list'),
+    path('product/<int:pk>/', views.product_detail, name='product_detail'),
+    path('gown_list', views.gown_list, name='gown_list'),
+    path('rent_studio_spaces/', views.rent_studio_spaces, name='rent_studio_spaces'),   
+      path('add/<int:product_id>/', views.add_to_cart, name='add_to_cart'),
+    path('remove/<int:item_id>/', views.remove_from_cart, name='remove_from_cart'),
+    path('', views.cart_detail, name='cart_detail'),
+    # path('submit/', submit_form, name='submit_form'),
+]
+
