@@ -31,7 +31,7 @@ urlpatterns = [
     path('ethnic',views.ethnic_list,name='ethnic'),
  path('mom_daughter/', views.mom_daughter, name='mom_daughter'),   path('party',views.party_view,name='party'),
     path('accessories',views.accessories,name='accessories'),
-    path('/submit-form', views.submit_form, name='submit_form'),
+    path('submit-form/', views.submit_form, name='submit_form'),
     path('login_view', views.login_view, name='login'),
     path('product_list', views.product_list, name='product_list'),
     path('product/<int:pk>/', views.product_detail, name='product_detail'),

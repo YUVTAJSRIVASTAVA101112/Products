@@ -96,14 +96,16 @@ def first_bd(request):
 def casual(request):
     return render(request,'casual.html')
 
-def ethnic(request):
-    return render(request,'ethnic.html')
 
 def mom_daughter(request):
-    return render(request,'mom_daughter.html')
+    md = MomDaughters.objects.all()
+    query = {'md': md}
+    return render(request,'mom_daughter.html', query)
 
 def party(request):
-    return render(request,'party.html')
+    pty = Parties.objects.all()
+    qs  = {'pty': pty}
+    return render(request,'party.html', qs)
 
 def accessories(request):
     return render(request,'accessories.html')
@@ -226,8 +228,10 @@ def party_view(request):
 
 
 def mom_daughter_view(request):
-    mom_daughter = MomDaughters.objects.all()
-    return render(request, 'mom_daughter.html', {'mom_daughter': mom_daughter})
+    md = MomDaughters.objects.all()
+    queryset = {'mom_daughter': md}
+    print(md)
+    return render(request, 'mom_daughter.html',queryset )
 
 #cart
 

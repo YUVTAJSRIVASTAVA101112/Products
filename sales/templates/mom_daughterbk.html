@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mom daughter</title>
     <style>
         body {
             background-color: #F7D4F7;
@@ -19,7 +19,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background:transparent; /* Changed to white */
+            background: transparent;
             display: flex;
             align-items: center;
             padding: 10px 0;
@@ -183,17 +183,21 @@
     <!-- body content -->
     <div class="content-container">
         <!-- <h1>Product List</h1> -->
-        <div class="party-cards">
-            {% for x in pty %}
-             <a href="{% url 'pty' %}"></a>
-                <img src="{{ x.image.url }}" alt="{{ x.name }}">
+        <div class="mom_daughter-cards">
+            {%if md %}
+            {% for x in md %}
+            <div class="card">
+                
+                <img width="200px" src="{{ x.image.url }}" alt="{{ x.name }}">
                 <h2>{{ x.name }}</h2>
                 <p>Price: Rs. {{ x.price }}</p>
-                <p>Price: Rs. {{ x.price }}</p>
             </div>
-            {% empty %}
-            <h2>No Products Available</h2>
-            {% endfor%}
+            {% endfor %}
+            {%else%}
+             <h2>No Products Available</h2>
+            {% endif %}
+           
+            
         </div>
     </div>
 

@@ -212,7 +212,7 @@ class Ethnics(models.Model):
 
 class MomDaughters(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='sales/static/media/')
+    image = models.ImageField(upload_to='static/media/')
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
