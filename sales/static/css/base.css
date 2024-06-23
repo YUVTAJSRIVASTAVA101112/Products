@@ -50,7 +50,7 @@ footer {
         left: 0;
         width: 100%;
         margin-bottom: 60px;
-        /* background: rgb(255, 138, 155); */
+        background: rgb(255, 138, 155);
         /* background: transparent; */
         background: linear-gradient(rgba(0,0,0,0.5));
         display: flex;
