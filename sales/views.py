@@ -219,7 +219,7 @@ from .models import Parties
 
 def party_view(request):
     party = Parties.objects.all()
-    return render(request, 'party.html', {'parties': party})
+    return render(request, 'party.html', {'pty': party})
 
 
 

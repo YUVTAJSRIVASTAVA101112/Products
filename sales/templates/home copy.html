@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+<!-- 
+    <div class="navbar-left">
+      <ul class="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>
+              <a href="{% url 'product_list' %}">Shop</a>
+              <div class="dropdown-content">
+                  <a href="{% url 'first_bd' %}">1st BIRTHDAYS</a>
+                  <a href="{% url 'casual' %}">CASUALS</a>
+                  <a href="{% url 'ethnic' %}">ETHNIC</a>
+                  <a href="{% url 'product_list' %}">KIDS SALE</a>
+                  <a href="{% url 'mom_daughter' %}">MOM-DAUGHTER DUO</a>
+                  <a href="{% url 'party' %}">PARTY WEAR</a>
+                  <a href="{% url 'accessories' %}">ACCESSORIES</a>
+              </div>
+          </li>
+          <li><a href="{% url 'contact_us' %}">Contact</a></li>
+          <li><a href="{% url 'about_us' %}">About Us</a></li>
+          <li><a href="{% url 'terms_condition' %}">Terms & Conditions</a></li>
+      </ul>
+  </div> -->
+
+
+  <style>
+    *{
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+    .header{
+      width: 100%;
+      height: 1000px;
+      background-clip: url(/sales/myproject/salesapp/static/videos/video17.mp4);
+      background-size: auto;
+    }
+    body {
+      background-color: #F7D4F7;
+    }
+
+    /* navbar */
+    .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: transparent;
+            display: flex;
+            align-items: right;
+            padding: 10px 0;
+            height: 80px;
+            z-index: 1000;
+            box-sizing: border-box;
+            box-shadow: #F7D4F7;
+        }
+
+        .navbar-left,
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: #F7D4F7;
+        }
+
+        .navbar-left {
+            margin-left: 10px;
+            box-shadow: #F7D4F7;
+        }
+
+        .logo-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: #F7D4F7;
+        }
+
+        .logo {
+            text-align: center;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+            transition: color 0.3s;
+            font-family: sans-serif;
+        }
+
+        .nav-links a:hover {
+            color: lightcoral;
+        }
+
+        .nav-links .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #F7D4F7;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            left: 0;
+            top: 100%;
+            box-sizing: border-box;
+        }
+
+        .nav-links li:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+            font-family: sans-serif;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: lightcoral;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            margin-right: 10px;
+        }
+
+        .nav-icons img {
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .content-container {
+            flex: 1;
+            padding-top: 80px; /* Compensate for the fixed navbar */
+            text-align: center;
+        }
+
+
+    .content {
+      margin-bottom: 50px;
+      /* Provide some space above the footer */
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f1f1f1;
+      width: 100%;
+      margin-top: auto;
+      /* Ensure footer is pushed to the bottom */
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    .shop-now-btn {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: lightcoral;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: sans-serif;
+      transition: background-color 0.3s;
+    }
+
+    .shop-now-btn:hover {
+      background-color: darkred;
+    }
+
+    /* main window */
+    .main-window {
+      height: 100vh;
+      background-color: #F7D4F7;
+      position: relative;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: scale(1.1);
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    }
+
+    .slide img,
+    .slide video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .shop-now-btn {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: rgba(103, 100, 100, 0.2);
+      color: rgb(251, 249, 249);
+      text-decoration: none;
+      border-radius: 5px;
+      border: 2px solid rgb(251, 248, 248);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .shop-now-btn:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+    }
+
+    .navbar-right {
+      margin-left: auto;
+      margin-right: 10px;
+    }
+
+    /* featured collections */
+    .featured-collections {
+      text-align: center;
+      color: #8B0000;
+      /* Mid red color */
+      margin-top: 2cm;
+    }
+
+    .featured-collections>div {
+      margin-bottom: 1.5cm;
+    }
+
+    .featured-collections h6 {
+      font-size: 1rem;
+      /* Small font size */
+      margin: 0;
+    }
+
+    .featured-collections h5 {
+      margin: 0;
+      letter-spacing: 0.5cm;
+      /* 0.5 cm spacing between letters */
+      font-size: 1rem;
+    }
+
+    .vendor-cards {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 0 auto;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
+
+    .card1 {
+      position: relative;
+      flex: 1 1 calc(25% - 20px);
+      /* Adjust width and gap */
+      background-color: rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card1:hover {
+      transform: translateY(-10px);
+    }
+
+    .card1 img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .card1-details {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .card1-details h6 {
+      margin: 0;
+      color: black;
+      font-size: 1rem;
+      /* Adjust size if needed */
+    }
+
+    .card1-details p {
+      margin: 5px 0;
+      color: black;
+    }
+
+    .card1-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .view-all {
+      text-align: center;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .view-all a {
+      padding: 10px 20px;
+      background-color: rgba(255, 255, 255, 0.5);
+      color: #150101;
+      text-decoration: none;
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .view-all a:hover {
+      background-color: rgba(255, 255, 255, 0.7);
+      color: #000;
+    }
+
+
+
+    /* slide */
+    .accessories-section {
+      margin-top: 2cm;
+      text-align: center;
+    }
+
+    .accessories-section h6 {
+      font-size: 1rem;
+      color: black;
+      margin-bottom: 1.5cm;
+    }
+
+    .carousel .carousel-inner {
+      position: relative;
+    }
+
+    .buy-now-btn {
+      position: absolute;
+      /* bottom: 20px;
+      left: 50%; */
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: rgba(255, 255, 255, 0.5);
+      color: black;
+      text-decoration: none;
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      transition: background-color 0.3s, color 0.3s;
+      z-index: 2;
+    }
+
+    .buy-now-btn:hover {
+      background-color: rgba(255, 255, 255, 0.7);
+      color: black;
+    }
+
+    /* video card part */
+
+    .container1 {
+      max-width: 1200px;
+    }
+
+    .card2 {
+      width: 400px;
+      /* Increase the width of each card */
+    }
+
+    .card2-video {
+      position: relative;
+      overflow: hidden;
+      height: 300px;
+    }
+
+    .card2-video .video1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .pop-up {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 10px 20px;
+      border: none;
+      font-size: 18px;
+      display: none;
+    }
+
+    .card2:hover .pop-up {
+      display: block;
+    }
+
+    .horizontalscroll {
+      max-width: 100%;
+      overflow: auto hidden;
+      display: flex;
+      column-gap: 20px;
+      margin: 20px;
+      overflow-x: scroll;
+    }
+
+    .horizontalscroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .images {
+      cursor: pointer;
+    }
+
+    .images:hover {
+      box-shadow: 0px 5px 10px 0px rgba(0, 0, 1, 4);
+    }
+
+    /* <!-- animation cards --> */
+
+    html {
+      font-family: sans-serif;
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .color-white {
+      color: #fff;
+    }
+
+    .box-container {
+      display: flex;
+      justify-content: space-around;
+      padding: 35px 15px;
+      width: 100%;
+      flex-wrap: wrap;
+      /* Ensure wrapping on smaller screens */
+    }
+
+    .box-item {
+      position: relative;
+      -webkit-backface-visibility: hidden;
+      width: 200px;
+      /* Reduced width */
+      margin: 15px;
+      /* Adjusted margin */
+      max-width: 100%;
+    }
+
+    .flip-box {
+      -ms-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      perspective: 1000px;
+      -webkit-perspective: 1000px;
+    }
+
+    .flip-box-front,
+    .flip-box-back {
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px;
+      min-height: 300px;
+      /* Reduced min-height */
+      -ms-transition: transform 0.7s cubic-bezier(.4, .2, .2, 1);
+      transition: transform 0.7s cubic-bezier(.4, .2, .2, 1);
+      -webkit-transition: transform 0.7s cubic-bezier(.4, .2, .2, 1);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    .flip-box-front {
+      -ms-transform: rotateY(0deg);
+      -webkit-transform: rotateY(0deg);
+      transform: rotateY(0deg);
+      -webkit-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+    }
+
+    .flip-box:hover .flip-box-front {
+      -ms-transform: rotateY(-180deg);
+      -webkit-transform: rotateY(-180deg);
+      transform: rotateY(-180deg);
+      -webkit-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+    }
+
+    .flip-box-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      -ms-transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+      transform: rotateY(180deg);
+      -webkit-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+    }
+
+    .flip-box:hover .flip-box-back {
+      -ms-transform: rotateY(0deg);
+      -webkit-transform: rotateY(0deg);
+      transform: rotateY(0deg);
+      -webkit-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+    }
+
+    .flip-box .inner {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      /* Adjusted padding */
+      outline: 1px solid transparent;
+      -webkit-perspective: inherit;
+      perspective: inherit;
+      z-index: 2;
+
+      transform: translateY(-50%) translateZ(60px) scale(.94);
+      -webkit-transform: translateY(-50%) translateZ(60px) scale(.94);
+      -ms-transform: translateY(-50%) translateZ(60px) scale(.94);
+      top: 50%;
+    }
+
+    .flip-box-header {
+      font-size: 18px;
+      /* Adjusted font size */
+    }
+
+    .flip-box p {
+      font-size: 14px;
+      /* Adjusted font size */
+      line-height: 1.5em;
+    }
+
+    .flip-box-img {
+      margin-top: 15px;
+      /* Adjusted margin */
+    }
+
+    .flip-box-button {
+      background-color: transparent;
+      border: 2px solid #fff;
+      border-radius: 2px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      /* Adjusted font size */
+      font-weight: bold;
+      margin-top: 15px;
+      /* Adjusted margin */
+      padding: 10px 15px;
+      /* Adjusted padding */
+      text-transform: uppercase;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f1f1f1;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+
+    /* last slides */
+
+    .background {
+      background: url('https://images.pexels.com/photos/1095624/pexels-photo-1095624.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260') center top no-repeat #252746;
+      background-size: cover;
+      display: block;
+      width: 100%;
+      height: 1000px;
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+    }
+
+    .background-texture {
+      background: -webkit-gradient(linear,
+          left bottom,
+          left top,
+          from(#0f0140e6),
+          to(rgba(255, 214, 117, 0.9)));
+      background: linear-gradient(to top, #0f0140e6, rgba(255, 214, 117, 0.9));
+      background-size: cover;
+      width: 100%;
+      height: 1000px;
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+    }
+
+    .carousel2 {
+      width: 100%;
+      overflow-x: scroll;
+      padding: 30px;
+      padding-top: 80px;
+      position: relative;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .carousel2__container {
+      white-space: nowrap;
+      margin: 70px 0px;
+      padding-bottom: 10px;
+      display: inline-block;
+    }
+
+    .categories__title {
+      color: rgb(77, 55, 102);
+      font-size: 28px;
+      position: absolute;
+      padding-left: 30px;
+    }
+
+    .carousel2-item {
+      width: 200px;
+      height: 250px;
+      border-radius: 20px;
+      background-color: #95bcd6;
+      overflow: hidden;
+      margin-right: 10px;
+      margin-top: 70px;
+      display: inline-block;
+      cursor: pointer;
+      -webkit-transition: 1000ms all;
+      transition: 1000ms all;
+      -webkit-transform-origin: center left;
+      transform-origin: center left;
+      position: relative;
+    }
+
+    .carousel2-item:hover~.carousel2-item {
+      -webkit-transform: translate3d(100px, 0, 0);
+      transform: translate3d(100px, 0, 0);
+    }
+
+    .carousel__container:hover .carousel-item {
+      opacity: 0.3;
+    }
+
+    .carousel2__container:hover .carousel2-item:hover {
+      -webkit-transform: scale(1.5);
+      transform: scale(1.5);
+      opacity: 1;
+    }
+
+    .carousel2-item__img {
+      width: 200px;
+      height: 250px;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+
+    .carousel2-item__details {
+      background: -webkit-gradient(linear,
+          left bottom,
+          left top,
+          from(rgba(0, 0, 0, 0.9)),
+          to(rgba(0, 0, 0, 0)));
+      background: linear-gradient(to top,
+          rgba(0, 0, 0, 0.9) 0%,
+          rgba(0, 0, 0, 0) 100%);
+      font-size: 10px;
+      opacity: 0;
+      -webkit-transition: 450ms opacity;
+      transition: 450ms opacity;
+      padding: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .carousel2-item__details:hover {
+      opacity: 1;
+    }
+
+    .carousel2-item__details span {
+      /* width: 10px;
+  height: 10px; */
+      font-size: 0.9rem;
+      color: #2ecc71;
+      /* background-color: white; */
+    }
+
+    .carousel2-item__details .controls {
+      padding-top: 180px;
+    }
+
+    .carousel2-item__details .carousel2-item__details--title,
+    .carousel2-item__details--subtitle {
+      color: #fff;
+      margin: 5px 0;
+    }
+
+    /* Styles for the gallery */
+    .gallery-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      max-width: 1200px;
+
+    }
+
+    /* Styles for each image block */
+    .image-block {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(20% - 20px);
+      /* Adjust as needed for spacing */
+      min-width: 200px;
+      /* Adjust as needed for responsiveness */
+      height: 300px;
+      /* Adjust as needed for aspect ratio */
+      margin-bottom: 150px;
+      /* Adjust spacing between image blocks */
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    }
+
+    .image-block:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+
+    .image-block h1 {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      margin: 0;
+      padding: 0;
+      color: white;
+      font-size: 24px;
+      font-weight: 100;
+      line-height: 1;
+      z-index: 999;
+    }
+
+    .image-block img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.25s;
+    }
+
+    .image-block figcaption {
+      position: absolute;
+      bottom: -34%;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.85);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      color: white;
+      line-height: 1;
+      transition: bottom 0.25s;
+    }
+
+    .image-block:hover figcaption {
+      bottom: 0;
+    }
+
+    .image-block h3 {
+      margin: 0 0 10px;
+    }
+
+    .image-block p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .shop-now-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 20px;
+      background-color: #1abc9c;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .shop-now-button:hover {
+      background-color: #16a085;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- nav bar -->
+  <div>
+    <div class="navbar">
+      <div class="navbar-left">
+        <ul class="nav-links">
+          <li><a href="\">Home</a></li>
+          <li><a href="product_list">Shop</a>
+            <div class="dropdown-content">
+              <a href="first_bd">1st BIRTHDAYS</a>
+              <a href="casual">CASUALS</a>
+              <a href="ethnic">ETHNIC</a>
+              <a href="product_list">KIDS SALE</a>
+              <a href="mom_daughter">MOM-DAUGHTER DUO</a>
+              <a href="party">PARTY WEAR</a>
+              <a href="accessories">ACCESSORIES</a>
+            </div>
+          </li>
+          <li><a href="\contact_us">Contact</a></li>
+          <li><a href="\about_us">About Us</a></li>
+          <li><a href="\terms_condition">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      <div class="logo-container">
+        <div class="logo">
+          <a href="#home"><img src="static\media\Logo.png"
+              alt="Logo"></a>
+        </div>
+      </div>
+      <div class="navbar-right">
+        <div class="nav-icons">
+          <a href="login_view"><i class="fa fa-user-circle-o" aria-hidden="true"
+              style="font-size:25px;color:black;"></i>
+          </a>
+          <a href="search"><i class="fa fa-search" aria-hidden="true" style="font-size:25px;color:black;"></i></a>
+          <a href="#cart"><i class="fa fa-shopping-bag" aria-hidden="true" style="font-size:25px;color:black;"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="main-window" style="position: relative; height: 100vh; overflow: hidden;">
+        <video src="static/videos/video17.mp4" autoplay loop muted style="width: 100%; height: 100%; object-fit: cover;"></video>
+        <a href="product_list" class="shop-now-btn" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 10px 20px; background-color: rgb(185, 180, 180); color: white; text-decoration: none; border-radius: 5px; font-family: sans-serif; transition: background-color 0.3s;">Shop Now</a>
+    </div>
+</div>
+
+  <!-- Inside the <body> tag, after the <div class="main-window"> -->
+  <div>
+    <div class="featured-collections">
+      <div>
+        <h6>FEATURED COLLECTIONS</h6>
+      </div>
+      <div>
+        <h5>SHOP SANCHVI LOOKS</h5>
+      </div>
+    </div>
+  </div>
+
+
+  <!--Animation cards  -->
+
+  <div class="box-container">
+    <div class="box-item">
+      <div class="flip-box">
+        <div class="flip-box-front text-center"
+          style="background-image: url('https://sanchvi.com/cdn/shop/files/Dviti_SG17_x800.jpg?v=1697879474');">
+          <div class="inner color-white">
+            <h3 class="flip-box-header">1st Birthdays</h3>
+            <p>A short sentence describing this callout is.</p>
+            <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">
+          </div>
+        </div>
+        <div class="flip-box-back text-center"
+          style="background-image: url('https://sanchvi.com/cdn/shop/files/Dviti_SG17_x800.jpg?v=1697879474');">
+          <div class="inner color-white">
+            <h3 class="flip-box-header">1st Birthdays</h3>
+            <p>A short sentence describing this callout is.</p>
+            <button class="flip-box-button" onclick="location.href='birthday_list'">View all</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-item">
+      <div class="flip-box">
+        <div class="flip-box-front text-center"
+          style="background-image: url('https://sanchvi.com/cdn/shop/files/B22_1178-1_400x.jpg?v=1702555074');">
+          <div class="inner color-white">
+            <h3 class="flip-box-header">Casual wear</h3>
+            <p>A short sentence describing this callout is.</p>
+            <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">
+          </div>
+        </div>
+        <div class="flip-box-back text-center"
+          style="background-image: url('https://sanchvi.com/cdn/shop/files/B22_1178-1_400x.jpg?v=1702555074');">
+          <div class="inner color-white">
+            <h3 class="flip-box-header">Casual wear</h3>
+            <p>A short sentence describing this callout is.</p>
+            <button class="flip-box-button" onclick="location.href='casual'">View all</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-item">
+      <div class="flip-box">
+        <div class="flip-box-front text-center"
+          style="background-image: url('https://sanchvi.com/cdn/shop/files/KS_14_Final-01_600x.jpg?v=1713515112');">
+          <div class="inner color-white">
+            <h3 class="flip-box-header">Ethnic wear</h3>
+            <p>A short sentence describing this callout is.</p>
+            <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">
+          </div>
+        </div>
+        <div class="flip-box-back text-center"
+          style="background-image: url('https://sanchvi.com/cdn/shop/files/KS_14_Final-01_600x.jpg?v=1713515112');">
+          <div class="inner color-white">
+            <h3 class="flip-box-header">Ethnic wear</h3>
+            <p>A short sentence describing this callout is.</p>
+            <button class="flip-box-button" onclick="location.href='ethnic'">View all</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-item">
+      <div class="flip-box">
+        <div class="flip-box-front text-center"
+          style="background-image: url('https://sanchvi.com/cdn/shop/files/mom_daughter_piece_400x.jpg?v=1709619319');">
+          <div class="inner color-white">
+            <h3 class="flip-box-header">Mom-Daughter duo</h3>
+            <p>A short sentence describing this callout is.</p>
+            <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">
+          </div>
+        </div>
+        <div class="flip-box-back text-center"
+          style="background-image: url('https://sanchvi.com/cdn/shop/files/mom_daughter_piece_400x.jpg?v=1709619319');">
+          <div class="inner color-white">
+            <h3 class="flip-box-header">Mom-Daughter duo</h3>
+            <p>A short sentence describing this callout is.</p>
+            <button class="flip-box-button" onclick="location.href='mom_daughter'">View all</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-item">
+      <div class="flip-box">
+        <div class="flip-box-front text-center"
+          style="background-image: url('https://sanchvi.com/cdn/shop/files/Kids_03A_Final-01_2_400x.jpg?v=1715773760');">
+          <div class="inner color-white">
+            <h3 class="flip-box-header">Party wear</h3>
+            <p>A short sentence describing this callout is.</p>
+            <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">
+          </div>
+        </div>
+        <div class="flip-box-back text-center"
+          style="background-image: url('https://sanchvi.com/cdn/shop/files/Kids_03A_Final-01_2_400x.jpg?v=1715773760');">
+          <div class="inner color-white">
+            <h3 class="flip-box-header">Party wear</h3>
+            <p>A short sentence describing this callout is.</p>
+            <button class="flip-box-button" onclick="location.href='party'">View all</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-item">
+      <div class="flip-box">
+        <div class="flip-box-front text-center"
+          style="background-image: url('https://sanchvi.com/cdn/shop/files/IMG-8275_400x.jpg?v=1702968433');">
+          <div class="inner color-white">
+            <h3 class="flip-box-header">Accessories</h3>
+            <p>A short sentence describing this callout is.</p>
+            <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">
+          </div>
+        </div>
+        <div class="flip-box-back text-center"
+          style="background-image: url('https://sanchvi.com/cdn/shop/files/IMG-8275_400x.jpg?v=1702968433');">
+          <div class="inner color-white">
+            <h3 class="flip-box-header">Accessories</h3>
+            <p>A short sentence describing this callout is.</p>
+            <button class="flip-box-button" onclick="location.href='accessories'">View all</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- video cards  -->
+  <div style="padding-top: 5%;">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 5%;">
+        <div style="width: 100%; max-width: 400px; height: 610px; position: relative; flex: 1 1 300px;">
+          <video src="static/videos/video13.mp4" autoplay loop muted
+            style="width: 100%; height: 100%; object-fit: cover;"></video>
+          <a href="details1">
+            <button
+              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 10px 20px; border: 2px solid #fff; border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #fff; font-size: 16px; text-align: center; cursor: pointer;">Buy
+              Now</button>
+          </a>
+        </div>
+        <div style="width: 100%; max-width: 400px; height: 610px; position: relative; flex: 1 1 300px;">
+          <video src="static/videos/video9.mp4" autoplay loop muted
+            style="width: 100%; height: 100%; object-fit: cover;"></video>
+          <a href="details2">
+            <button
+              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 10px 20px; border: 2px solid #fff; border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #fff; font-size: 16px; text-align: center; cursor: pointer;">Buy
+              Now</button>
+          </a>
+        </div>
+        <div style="width: 100%; max-width: 400px; height: 610px; position: relative; flex: 1 1 300px;">
+          <video src="static/videos/video16.mp4" autoplay loop muted
+            style="width: 100%; height: 100%; object-fit: cover;"></video>
+          <a href="details3">
+            <button
+              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 10px 20px; border: 2px solid #fff; border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #fff; font-size: 16px; text-align: center; cursor: pointer;">Buy
+              Now</button>
+          </a>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 5%;">
+        <div style="width: 100%; max-width: 400px; height: 610px; position: relative; flex: 1 1 300px;">
+          <video src="static/videos/video11.mp4" autoplay loop muted
+            style="width: 100%; height: 100%; object-fit: cover;"></video>
+          <a href="details4">
+            <button
+              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 10px 20px; border: 2px solid #fff; border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #fff; font-size: 16px; text-align: center; cursor: pointer;">Buy
+              Now</button>
+          </a>
+        </div>
+        <div style="width: 100%; max-width: 400px; height: 610px; position: relative; flex: 1 1 300px;">
+          <video src="static/videos/video12.mp4" autoplay loop muted
+            style="width: 100%; height: 100%; object-fit: cover;"></video>
+          <a href="details5">
+            <button
+              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 10px 20px; border: 2px solid #fff; border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #fff; font-size: 16px; text-align: center; cursor: pointer;">Buy
+              Now</button>
+          </a>
+        </div>
+        <div style="width: 100%; max-width: 400px; height: 610px; position: relative; flex: 1 1 300px;">
+          <video src="static/videos/video10.mp4" autoplay loop muted
+            style="width: 100%; height: 100%; object-fit: cover;"></video>
+          <a href="details6">
+            <button
+              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 10px 20px; border: 2px solid #fff; border-radius: 5px; background-color: rgba(0, 0, 0, 0.5); color: #fff; font-size: 16px; text-align: center; cursor: pointer;">Buy
+              Now</button>
+          </a>
+        </div>
+      </div>
+      <!-- <div style="text-align: center; margin-top: 20px;">
+            <a href="all_videos.html">
+                <button style="padding: 10px 20px; border: 2px solid #000; border-radius: 5px; background-color: #fff; color: #000; font-size: 16px; cursor: pointer;">View All</button>
+            </a>
+        </div> -->
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- our collections -->
+
+  <div style="text-align: center; color: #8B0000; padding-top: 5%;">
+    <span>O&nbsp;U&nbsp;R&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;O&nbsp;L&nbsp;L&nbsp;E&nbsp;C&nbsp;T&nbsp;I&nbsp;O&nbsp;N&nbsp;S</span>
+  </div>
+
+  <!-- vender cards  -->
+  <div style="padding: 5%;">
+    <div class="vendor-cards">
+      <div class="card1">
+        <img src="https://sanchvi.com/cdn/shop/files/KS_03_Final-01_600x.jpg?v=1714728893" alt="Product 1">
+        <div class="card1-details">
+          <h6>SANCHVI</h6>
+          <p>DOUBLE SCALLOP LEHERIYA
+            PRINT</p> <!-- Dress name -->
+          <p>Rs.23,599</p> <!-- Price -->
+        </div>
+        <a href="product1" class="card1-link"></a>
+      </div>
+      <div class="card1">
+        <img src="https://sanchvi.com/cdn/shop/files/KS_05_Final-01-Copy_600x.jpg?v=1713515195" alt="Product 2">
+        <div class="card1-details">
+          <h6>SANCHVI</h6>
+          <p>JIMMY CHOO HALTER NECK WITH PANTS
+          </p> <!-- Dress name -->
+          <p>Rs.8,499</p> <!-- Price -->
+        </div>
+        <a href="product2" class="card1-link"></a>
+      </div>
+      <div class="card1">
+        <img src="https://sanchvi.com/cdn/shop/files/KS_26_Final-01_600x.jpg?v=1713515390" alt="Product 3">
+        <div class="card1-details">
+          <h6>SANCHVI</h6>
+          <p>WIRED LEAVES STRUCTURED BLOUSE WITH ORGANZA SKIRT
+          </p> <!-- Dress name -->
+          <p>Rs.8,099</p> <!-- Price -->
+        </div>
+        <a href="product3" class="card1-link"></a>
+      </div>
+      <div class="card1">
+        <img
+          src="https://sanchvi.com/cdn/shop/files/KS_30_Final-01_b0ceed62-0235-4675-a438-863f05237070_250x.jpg?v=1713516676"
+          alt="Product 4">
+        <div class="card1-details">
+          <h6>SANCHVI</h6>
+          <p>BUTTERFLY THEMED DRESS
+          </p> <!-- Dress name -->
+          <p>Rs.6,899</p> <!-- Price -->
+        </div>
+        <a href="product4" class="card1-link"></a>
+      </div>
+      <div class="view-all">
+        <a href="ethnic">View All</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- purchase gowns  -->
+
+  <div style="text-align: center; color: #8B0000; padding-top: 2%;" style="padding-bottom: 3%;">
+    <a href="gown_list" style="color: #8B0000; text-decoration: none;" style="padding-bottom: 3%;">
+      <span>A&nbsp;C&nbsp;Q&nbsp;U&nbsp;I&nbsp;R&nbsp;I&nbsp;N&nbsp;G&nbsp;&nbsp;&nbsp;&nbsp;W&nbsp;O&nbsp;M&nbsp;E&nbsp;N&nbsp;&nbsp;&nbsp;A&nbsp;T&nbsp;T&nbsp;I&nbsp;R&nbsp;E</span>
+    </a>
+  </div>
+  <div>
+    <div class="gallery-container" style="padding-top: 5%;" style="padding-bottom: 15%;">
+      <figure class="image-block">
+        <img
+          src="https://sanchvi.com/cdn/shop/files/SG_01-01_1fde6fc2-deb6-415a-b4c7-d17656ead521_400x.jpg?v=1709622759"
+          alt="" />
+        <figcaption>
+          <h6>TEAL</h6>
+          <p>SANCHVI</p>
+          <p>RS. 12,999/-</p>
+          <a href="shop_now1" class="shop-now-button">Shop Now</a>
+        </figcaption>
+      </figure>
+
+      <!-- Repeat this block 4 more times -->
+      <figure class="image-block">
+        <img
+          src="https://sanchvi.com/cdn/shop/files/SG_21-01_1b02f90c-b454-4b5d-8da5-c018f20e8b05_1000x.jpg?v=1701237815"
+          alt="" />
+        <figcaption>
+          <h6>ROYALTY</h6>
+          <p>SANCHVI</p>
+          <p>RS. 14,999/-</p>
+          <a href="shop_now2" class="shop-now-button">Shop Now</a>
+        </figcaption>
+      </figure>
+
+      <figure class="image-block">
+        <img
+          src="https://sanchvi.com/cdn/shop/files/SG_08-01_e6f75df7-f3cf-4b4f-86e7-1670b1a47723_1000x.jpg?v=1701237887"
+          alt="" />
+        <figcaption>
+          <h6>WINE</h6>
+          <p>SANCHVI</p>
+          <p>Rs. 25,999/-</p>
+          <a href="shop_now3" class="shop-now-button">Shop Now</a>
+        </figcaption>
+      </figure>
+
+      <figure class="image-block">
+        <img
+          src="https://sanchvi.com/cdn/shop/files/SG_18-01_aaedc11f-6910-4ad4-949c-578d0231be58_1000x.jpg?v=1701237836"
+          alt="" />
+        <figcaption>
+          <h6>LAVENDER</h6>
+          <p>SANCHVI</p>
+          <p>Rs. 15,999/-</p>
+          <a href="shop_now4" class="shop-now-button">Shop Now</a>
+        </figcaption>
+      </figure>
+
+      <figure class="image-block">
+        <img
+          src="https://sanchvi.com/cdn/shop/files/SG_26-01_47afa629-9d47-483d-8e6f-06fe5258d151_700x.jpg?v=1709622651"
+          alt="" />
+        <figcaption>
+          <h6>SNOWFLAKE</h6>
+          <p>SANCHVI</p>
+          <p>Rs. 16,999/-</p>
+          <a href="shop_now5" class="shop-now-button">Shop Now</a>
+        </figcaption>
+      </figure>
+
+    </div>
+
+</body>
+
+</html>
+
+</div>
+
+
+
+
+<!-- studio space -->
+
+<body style="font-family: Arial, sans-serif; margin: 20px;" style="padding-top: 8%;" style="padding-bottom: 5%;">
+
+  <!-- Main Container -->
+  <div style="display: flex; border: 1px solid #ccc; padding: 20px; border-radius: 10px;" style="padding-top: 5%;">
+
+    <!-- Left Side: Photo -->
+    <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding-right: 20px;">
+      <img src="https://cdn.shopify.com/s/files/1/0810/4643/8200/files/Studio_space_2_480x480.jpg?v=1697179233"
+        alt="Studio Photo" style="max-width: 100%; height: auto; border-radius: 10px;">
+    </div>
+
+   <!-- Right Side: Heading, Address, Hours, and Button -->
+<div style="flex: 1; padding: 0%;">
+  <h5 style="margin-top: 0; font-weight: bold; padding-bottom: 5%;">SANCHVI STUDIO</h5>
+  <p style="margin: 0; padding-top: 5%;">17/1, 3rd Floor, Tulsi Pharma Building, Berlie St, Langford Town,
+    Shanti Nagar, Bengaluru, Karnataka 560025</p>
+  <p style="margin: 10px 0;">Mon - Fri, 9:30am - 7pm</p>
+  <p style="margin: 10px 0">Saturday, 9:30am - 7pm</p>
+  <p style="margin: 10px 0;">Sunday, 9:30am - 7pm</p>
+  <a href="https://www.google.com/maps/dir/?api=1&destination=17/1,+3rd+Floor,+Tulsi+Pharma+Building,+Berlie+St,+Langford+Town,+Shanti+Nagar,+Bengaluru,+Karnataka+560025"
+    target="_blank"
+    style="display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #717478; color: white; text-decoration: none; border-radius: 5px;">Get
+    Directions</a>
+  <!-- Link to the Rent Studio Spaces page -->
+  <a href="rent_studio_spaces"
+    style="display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #717478; color: white; text-decoration: none; border-radius: 5px;">Rent Studio Spaces</a>
+</div>
+
+  </div>
+
+</body>
+
+
+
+<!-- javascript code -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelectorAll('.slide');
+
+  function showSlides() {
+    slides.forEach((slide, index) => {
+      slide.classList.remove('active');
+      slide.style.opacity = 0;
+    });
+
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+
+    slides[slideIndex - 1].classList.add('active');
+    slides[slideIndex - 1].style.opacity = 1;
+
+    setTimeout(showSlides, 5000); // Change image every 5 seconds
+  }
+
+  showSlides();
+
+
+</script>
+
+<footer style="padding-top: 2%;">
+  <p>&copy; 2024 SANCHVI STUDIO</p>
+  <p>ADDRESS: 17/1, 3rd Floor, Tulsi Pharma Building, Berlie St, Langford Town, Shanti Nagar, Bengaluru, Karnataka
+    560025</p>
+  <p>CONTACT NUMBER: 8296250912</p>
+</footer>
+
+
+</body>
+
+</html>
